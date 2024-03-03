@@ -1,64 +1,32 @@
--- Function to load external scripts with error handling
-local function loadScript(url)
-    local success, script = pcall(game.HttpGet, game, url)
-    if success then
-        local loadedScript = loadstring(script)
-        if loadedScript then
-            local success, errorMsg = pcall(loadedScript)
-            if not success then
-                warn("Error executing script: " .. errorMsg)
-            end
-        else
-            warn("Error loading script: " .. url)
-        end
-    else
-        warn("Error fetching script from URL: " .. url)
-    end
-end
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/cat"))() --you can go into the github link and copy all of it and modify it for yourself.
+local Window = Library:CreateWindow("Nara.cc [BETA]", Vector2.new(398, 310), Enum.KeyCode.P)
 
--- Load libraries and create UI window
-local Library = loadScript("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/cat")
-
-local Window = Library:CreateWindow("nara.cc Whitelisted", Vector2.new(392, 310), Enum.KeyCode.V)
-
--- Create tabs and UI elements
 local AimingTab = Window:CreateTab("main")
-local testSection = AimingTab:CreateSector("main", "left")
 
-testSection:AddToggle("Enable", false, function(state)
-  
+
+local testSection = AimingTab:CreateSector("main", "left")  --you can  change the section code, for example "testsection" can be changed to "FunnyCoolSection" etc.
+
+testSection:AddTextbox("Prediction", nil, function(State)
 end)
 
-testSection:AddButton("Dot", function()
-    loadScript("https://raw.githubusercontent.com/therealzeek/nara.cc-lock/main/lock.md")
+testSection:AddButton("Enable", function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/therealzeek/nara.cc-lock/main/lock.md", true))()
 end)
 
-testSection:AddButton("rightclick", function()
-    loadScript("https://raw.githubusercontent.com/BalligusapoTT/BalligusapoTT/main/Leftclickballi")
+local miscTab = Window:CreateTab("msc")
+
+local miscSection = miscTab:CreateSector("misc", "left")
+
+miscSection:AddButton("rightclick", function()
+  loadstring(game:HttpGet('https://raw.githubusercontent.com/BalligusapoTT/BalligusapoTT/main/Leftclickballi'))()
 end)
 
-testSection:AddTextbox("Textbox", "Default Text", function(text)
-    print("Textbox text:", text)
+local ToggleBind = miscSection:AddToggle("Keybind w/Toggle", false, function(e)
+
 end)
 
-local ToggleBind = testSection:AddToggle("Keybind w/Toggle", false, function(state)
-    print("Keybind toggle state:", state)
-end)
+ToggleBind:AddKeybind()
 
--- Adding a keybind with the key "Y" for example
-ToggleBind:AddKeybind(Enum.KeyCode.Y, function()
-    print("Keybind pressed!")
-end)
+AimingTab:CreateConfigSystem("right") --this is the config system
 
--- Create MSC tab
-local MscTab = Window:CreateTab("msc")
-MscTab:CreateConfigSystem("right") -- Config system
-
--- Ensure that the UI stays when the player dies
-game.Players.LocalPlayer.CharacterAdded:Connect(function()
-    Window:Show()
-end)
-
--- Load icon and Ctool
-loadScript("https://raw.githubusercontent.com/therealzeek/icon/main/iconshow.lua")
-loadScript("https://raw.githubusercontent.com/therealzeek/Ctool/main/README.lua")
+loadstring(game:HttpGet("https://raw.githubusercontent.com/therealzeek/icon/main/iconshow.lua", true))()
