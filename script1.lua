@@ -13,12 +13,25 @@ testSection:AddButton("Enable", function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/therealzeek/nara.cc-lock/main/lock.md", true))()
 end)
 
+local ddhSection = AimingTab:CreateSector("da downhill", "left") 
+
+ddhSection:AddTextbox("Prediction", nil, function(State)
+end)
+
+ddhSection:AddButton("Enable", function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/tezprivlock/Script/main/thescript", true))()
+end)
+
 local miscTab = Window:CreateTab("msc")
 
 local miscSection = miscTab:CreateSector("misc", "left")
 
 miscSection:AddButton("rightclick", function()
   loadstring(game:HttpGet('https://raw.githubusercontent.com/BalligusapoTT/BalligusapoTT/main/Leftclickballi'))()
+end)
+
+miscSection:AddButton("TrashTalk (T)", function()
+  loadstring(game:HttpGet('https://raw.githubusercontent.com/therealzeek/Trash-talk/main/trashtalkbumassboa.lua'))()
 end)
 
 local ToggleBind = miscSection:AddToggle("Keybind w/Toggle", false, function(e)
