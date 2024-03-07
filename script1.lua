@@ -18,8 +18,13 @@ local ddhSection = AimingTab:CreateSector("da downhill", "left")
 ddhSection:AddTextbox("Prediction", nil, function(State)
 end)
 
+local ddhSection = AimingTab:CreateSector("smooth-lock", "left") 
+
+ddhSection:AddTextbox("Prediction", nil, function(State)
+end)
+
 ddhSection:AddButton("Enable", function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/tezprivlock/Script/main/thescript", true))()
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/therealzeek/smooth-lock/main/script.md"))()
 end)
 
 local miscTab = Window:CreateTab("msc")
