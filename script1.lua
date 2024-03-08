@@ -18,6 +18,10 @@ local ddhSection = AimingTab:CreateSector("da downhill", "left")
 ddhSection:AddTextbox("Prediction", nil, function(State)
 end)
 
+ddhSection:AddButton("Enable", function()
+ loadstring(game:HttpGet("https://pastefy.app/D3JX2ibd/raw", true))()
+end)
+
 local ddhSection = AimingTab:CreateSector("smooth-lock", "left") 
 
 ddhSection:AddTextbox("Prediction", nil, function(State)
@@ -33,6 +37,14 @@ local miscSection = miscTab:CreateSector("misc", "left")
 
 miscSection:AddButton("rightclick", function()
   loadstring(game:HttpGet('https://raw.githubusercontent.com/BalligusapoTT/BalligusapoTT/main/Leftclickballi'))()
+end)
+
+miscSection:AddButton("silent aim (FOV AUTO PRED)", function()
+ loadstring(game:HttpGet('https://raw.githubusercontent.com/therealzeek/fov-silent-aim-w-balls-tocoool/main/README.md'))()
+end)
+
+miscSection:AddButton("antilock", function()
+loadstring(game:HttpGet'http://kirbsware.xyz/r/Mobile.lua')()
 end)
 
 miscSection:AddButton("TrashTalk (T)", function()
